@@ -1,0 +1,5 @@
+.env
+/ssh_key/*
+!/ssh_key/*.md
+*.tfvars
+.DS_Store

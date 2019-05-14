@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  terransible:
+    build: 
+      context: .
+      args:
+        terraform_version: "0.11.13"
+        ssh_key_file_name: "${SSH_PRIV_KEY_FILE}"
+    tty: true
