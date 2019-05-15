@@ -14,7 +14,7 @@ resource "aws_iam_instance_profile" "s3_access_profile" {
 
 resource "aws_iam_role_policy" "s3_access_policy" {
   name = "s3_access_policy"
-  role = "{aws_iam_role.s3_access_role.id}"
+  role = "${aws_iam_role.s3_access_role.id}"
   policy = <<EOF
 {
   "Version": "2019-05-15",
