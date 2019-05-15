@@ -16,15 +16,10 @@ variable "db_user" {}
 variable "db_password" {}
 
 variable "db_instance_class" {}
-variable "dev_instance_type" {
-  
-}
-variable "dev_ami" {
-  
-}
-variable "key_name" {
-  
-}
-variable "public_key_path" {
-  
-}
+variable "dev_instance_type" {}
+
+variable "dev_ami" {}
+
+variable "key_name" {}
+
+variable "public_key_path" {}
