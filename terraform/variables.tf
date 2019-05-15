@@ -9,3 +9,17 @@ variable "cidrs" {
 
 variable "localip" {}
 variable "domain_name" {}
+variable "db_name" {
+  
+}
+variable "db_user" {
+  
+}
+variable "db_password" {
+  
+}
+variable "db_instance_class" {
+  
+}
+
+
