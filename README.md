@@ -1,17 +1,24 @@
-### HOW TO
+# HOW TO
 
-# SSH
 
 1. generate ssh key 
-``shh-keygen``
 
-2. Copy key to ssh_key folder
+    ``shh-keygen``
 
-3. user terransible.env to create your .env file and fill the variables with your values
-``cp terransible.env .env``
+2. user terransible.env to create your .env file and fill the variables with your values
 
-4. Build container
-``docker-compose build``
+    ``cp terransible.env .env``
 
-5. Run container
-``docker-compose up``
+3. Build container
+
+    ``docker-compose build``
+
+4. Run container
+
+    ``docker-compose up``
+
+5. Run following commands to add the ssh key to the agent inside the docker container
+
+    ``ssh-agent sh``
+
+    ``ssh-add your_key_name``

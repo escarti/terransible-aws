@@ -6,5 +6,7 @@ services:
       context: .
       args:
         terraform_version: "0.11.13"
-        ssh_key_file_name: "${SSH_PRIV_KEY_FILE}"
+    volumes:
+        - ${SSH_PRIV_FOLDER}:/root/.ssh:ro
+        - ./terraform:/workspace/terraform
     tty: true

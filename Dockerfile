@@ -7,7 +7,6 @@ ENV SSH_KEY_NAME ${ssh_key_file_name}
 
 RUN mkdir /workspace/
 COPY entrypoint.sh /workspace/
-COPY ssh_key/${ssh_key_file_name} /workspace/ssh_key
 
 RUN mkdir /bin/terraform
 
