@@ -279,7 +279,7 @@ resource "aws_security_group" "wp_private_sg" {
         from_port = 0
         to_port = 0
         protocol = "-1"
-        cidr_blocks = ["${var.cidrs}"]
+        cidr_blocks = ["${var.vpc_cidr}"]
     }
 
     egress {
