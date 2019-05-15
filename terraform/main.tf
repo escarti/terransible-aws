@@ -354,20 +354,15 @@ resource "aws_s3_bucket" "code" {
 #--------- RDS --------------
 
 resource "aws_db_instance" "wp_db" {
-    allocated_storage    = 10
-    storage_type         = "gp2"
-    engine               = "mysql"
-    engine_version       = "5.7"
-    instance_class       = "${var.db_instance_class}"
-    name                 = "${var.db_name}"
-    username             = "${var.db_user}"
-    password             = "${var.db_password}"
-    db_subnet_group_name = "${aws_db_subnet_group.wp_rds_subnetgroup.name}"
-    vpc_security_group_ids = ["${aws_security_group.wp_rds_sg.id}"]
-    skip_final_snapshot = true
+  allocated_storage      = 10
+  storage_type           = "gp2"
+  engine                 = "mysql"
+  engine_version         = "5.7"
+  instance_class         = "${var.db_instance_class}"
+  name                   = "${var.db_name}"
+  username               = "${var.db_user}"
+  password               = "${var.db_password}"
+  db_subnet_group_name   = "${aws_db_subnet_group.wp_rds_subnetgroup.name}"
+  vpc_security_group_ids = ["${aws_security_group.wp_rds_sg.id}"]
+  skip_final_snapshot    = true
 }
-
-
-
-
-
