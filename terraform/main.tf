@@ -198,7 +198,7 @@ resource "aws_route_table_association" "wp_private1_assoc" {
     route_table_id = "${aws_default_route_table.wp_private_rt.id}"
 }
 
-resource "aws_route_table_association" "wp_public2_assoc" {
+resource "aws_route_table_association" "wp_private2_assoc" {
     subnet_id = "${aws_subnet.wp_public2_subnet.id}"
     route_table_id = "${aws_default_route_table.wp_private_rt.id}"
 }
