@@ -3,3 +3,4 @@
 !/ssh_key/*.md
 *.tfvars
 .DS_Store
+/terraform/.terraform/*
