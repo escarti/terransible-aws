@@ -23,3 +23,7 @@ variable "dev_ami" {}
 variable "key_name" {}
 
 variable "public_key_path" {}
+variable "healthy_threshold" {}
+variable "unhealthy_threshold" {}
+variable "timeout" {}
+variable "elb_health_check_interval" {}
