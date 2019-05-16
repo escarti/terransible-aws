@@ -374,7 +374,7 @@ resource "aws_db_instance" "wp_db" {
 
 resource "aws_key_pair" "wp_auth" {
   key_name   = "${var.key_name}"
-  public_key = "${var.public_key_path}"
+  public_key = "${file(var.public_key_path)}"
 }
 
 resource "aws_instance" "wp_dev" {
