@@ -26,4 +26,10 @@ variable "public_key_path" {}
 variable "healthy_threshold" {}
 variable "unhealthy_threshold" {}
 variable "timeout" {}
+variable "lc_instance_type" {}
+variable "asg_max" {}
+variable "asg_min" {}
+variable "asg_grace" {}
+variable "asg_hct" {}
+variable "asg_cap" {}
 variable "elb_health_check_interval" {}
