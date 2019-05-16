@@ -34,3 +34,4 @@ variable "asg_grace" {}
 variable "asg_hct" {}
 variable "asg_cap" {}
 variable "elb_health_check_interval" {}
+variable "delegation_set" {}
