@@ -316,7 +316,7 @@ resource "aws_security_group" "wp_rds_sg" {
 
 resource "aws_vpc_endpoint" "wp_private-s3_endpoint" {
   vpc_id       = "${aws_vpc.wp_vpc.id}"
-  service_name = "com.amazon.${var.aws_region}.s3"
+  service_name = "com.amazonaws.${var.aws_region}.s3"
 
   route_table_ids = ["${aws_vpc.wp_vpc.main_route_table_id}",
     "${aws_route_table.wp_public_rt.id}",
