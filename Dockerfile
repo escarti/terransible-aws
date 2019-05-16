@@ -18,6 +18,3 @@ RUN wget -O terraform.zip "https://releases.hashicorp.com/terraform/${terraform_
 RUN apk add ansible && apk add openssh
 
 ENV PATH "$PATH:/bin/terraform"
-
-# run entrypoint.sh
-# ENTRYPOINT ["/workspace/entrypoint.sh"]
