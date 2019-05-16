@@ -513,3 +513,14 @@ resource "aws_autoscaling_group" "wp_asg" {
     create_before_destroy = true
   }
 }
+
+# --------- Route53 ressources ----------
+
+# Primary zone
+
+resource "aws_route53_zone" "primary" {
+  name = "${var.domain_name}.${var.domain_ending}"
+  delegation_set_id = "${var.delegation_set}"
+  
+
+}

@@ -9,6 +9,7 @@ variable "cidrs" {
 
 variable "localip" {}
 variable "domain_name" {}
+variable "domain_ending" {}
 variable "db_name" {}
 
 variable "db_user" {}
