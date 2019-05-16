@@ -211,7 +211,7 @@ resource "aws_route_table_association" "wp_private1_assoc" {
 }
 
 resource "aws_route_table_association" "wp_private2_assoc" {
-  subnet_id      = "${aws_subnet.wp_public2_subnet.id}"
+  subnet_id      = "${aws_subnet.wp_private2_subnet.id}"
   route_table_id = "${aws_default_route_table.wp_private_rt.id}"
 }
 
@@ -394,7 +394,7 @@ resource "aws_instance" "wp_dev" {
     command = <<EOD
 cat <<EOF > aws_hosts
 [dev]
-$"{aws_instance.wp_dev.public_ip}"
+${aws_instance.wp_dev.public_ip}
 [dev:vars]
 s3code=${aws_s3_bucket.code.bucket}
 domain=${var.domain_name}
@@ -403,7 +403,7 @@ EOD
   }
 
   provisioner "local-exec" {
-    command = "aws ec2 wait instance-status-ok --instance-ids $${aws_instance.wp_dev.id} --profile superhero && ansible-playbook -i aws_hosts wordpress.yml"
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.wp_dev.id} --profile superhero && ansible-playbook -i aws_hosts wordpress.yml"
   }
 }
 
@@ -461,9 +461,9 @@ resource "aws_ami_from_instance" "wp_golden" {
     command = <<EOT
   cat <<EOF > userdata
   #!/bin/bash
-  /usr/bin/aws s3 sync s3://$${aws_s3_bucket.code.bucket} /var/www/html
+  /usr/bin/aws s3 sync s3://${aws_s3_bucket.code.bucket} /var/www/html
   /bin/touch /var/spool/cron/root
-  sudo /bin/echo '*/5 * * * * aws s3 sync s3://$${aws_s3_bucket.code.bucket} /var/www/html' >> /var/spool/cron/root
+  sudo /bin/echo '*/5 * * * * aws s3 sync s3://${aws_s3_bucket.code.bucket} /var/www/html' >> /var/spool/cron/root
   EOF
   EOT
   }
