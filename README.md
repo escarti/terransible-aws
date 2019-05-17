@@ -2,11 +2,13 @@
 
 0. Go to AWS console and create user with Admin Access and download credentials.
 
-1. generate ssh key pair that will be used to create EC2 instances on your local computer
+1. In case you are setting up the infrastructure generate ssh key pair that will be used to create EC2 instances on your local computer
 
     ``shh-keygen``
 
-2. user terransible.env to create your .env file and fill the variables with your values
+2. If you are managing an existing infrastructure be sure to ask for the private key in case you need to connect to the EC2 instances (needed for terraform apply)
+
+2. use terransible.env to create your .env that will be used by docker and fill the variables with your values
 
     ``cp terransible.env .env``
 
