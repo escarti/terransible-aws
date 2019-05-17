@@ -3,16 +3,17 @@
   become: yes
   remote_user: ec2-user
   tasks:
-    - name: Enable amazon-linux-extras packages
-      shell: "amazon-linux-extras enable php7.2"
+    - name: Enable amazon-linux-extras packages php7 and mariadb
+      shell: "amazon-linux-extras enable php7.2 lamp-mariadb10.2-php7.2"
       become: yes
       become_method: sudo
-    - name: Install Apache.
+    - name: Install Apache, PHP and MySQL
       yum:
         name:
           - httpd
           - php
           - mariadb-server
+          - php-mysqlnd
         state: present
       become: yes
       become_method: sudo
@@ -27,9 +28,16 @@
          recurse: yes
          owner: apache
          group: apache
-    - name: start mysql server and enable it on reboot
+    - name: start mysql (mariadb) server
       become: yes
       command: systemctl start mariadb #debian: mysql
+    - name: start mysql (mariadb) on every reboot
+      become: yes
+      command: systemctl enable mariadb #debian: mysql
+    - name: Start apache
+      become: yes
+      command: systemctl start httpd
     - name: Make sure apache is started at boot
       become: yes
-      command: systemctl restart httpd
+      command: systemctl enable httpd
+    

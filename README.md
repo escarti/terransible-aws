@@ -20,7 +20,9 @@
 
 5. Connect to container
 
-7. Create a profile to manage AWS 
+## ONLY AFTER BUILDING (first time)
+
+1. Create a profile to manage AWS 
 
     ``aws configure --profile superhero``
 
@@ -28,7 +30,7 @@
 
     ``aws ec2 describe-instances --profile superhero``
 
-9. ONLY FIRST TIME! Create Route53 reusable delegation set
+9. Create Route53 reusable delegation set 
 
     ``aws route53 create-reusable-delegation-set --caller-reference 1224 --profile superhero``
 
@@ -36,23 +38,17 @@
 
     ``aws route53 create-hosted-zone --name marinabits.de --caller-reference 1224 --delegation-set-id /delegationset/NXO03GZWZVOG9 --profile superhero``
 
-6. Run following commands to add the ssh key to the agent inside the docker container
-
-    ```eval `ssh-agent -s` ```
-
-    ``ssh-add your_key_name``
-
 11. If you have a terraform.tfstate file copy it inside the ./terraform folder. This folder will be shared with the docker container.
 
 12. Configure the corresponding .tfvars file 
 
-13. Uncomment the line:
+## EVERY TIME YOU "up" your container
 
-    `` host_key_checking = False ``
+1. Run following commands to add the ssh key to the agent inside the docker container
 
-    inside the ansible config file located under:
+    ```eval `ssh-agent -s` ```
 
-    ``/etc/ansible/ansible.cfg``
+    ``ssh-add your_key_name``
 
 14. Finally TERRAFORM
 
