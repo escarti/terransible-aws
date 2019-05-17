@@ -398,6 +398,7 @@ ${aws_instance.wp_dev.public_ip}
 [dev:vars]
 s3code=${aws_s3_bucket.code.bucket}
 domain=${var.domain_name}
+domain_ending=${var.domain_ending}
 EOF
 EOD
   }

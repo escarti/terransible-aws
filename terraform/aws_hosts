@@ -3,3 +3,4 @@
 [dev:vars]
 s3code=marinabits-7818
 domain=marinabits
+domain_ending=de
