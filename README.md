@@ -42,6 +42,11 @@
 
 12. Configure the corresponding .tfvars file 
 
+23. Do a terraform init 
+
+    ``cd terraform``
+
+    ``terraform init``
 ## EVERY TIME YOU "up" your container
 
 1. Run following commands to add the ssh key to the agent inside the docker container
@@ -52,5 +57,7 @@
 
 14. Finally TERRAFORM
 
+    ``cd terraform``
+    
     ``terraform apply``
 
